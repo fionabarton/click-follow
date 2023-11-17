@@ -8,13 +8,13 @@ public class PlayerCollisions : MonoBehaviour {
         if (coll.gameObject.tag == "Enemy") {
             if(ScoreManager.S.lives > 1) {
                 // Reset player position
-                transform.position = Vector3.zero;
+                transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
 
                 // Decrement score
                 ScoreManager.S.SetLives(ScoreManager.S.lives - 1);
             } else {
                 // Game over
-                ScoreManager.S.SetMessage("Game Over!");
+                GameManager.S.GameOver("Game Over!");
             }
         } else if (coll.gameObject.tag == "Collectable") {
             // Deactivate collectable game object
@@ -24,7 +24,7 @@ public class PlayerCollisions : MonoBehaviour {
             ScoreManager.S.SetScore(ScoreManager.S.score + 1);
         } else if (coll.gameObject.tag == "Goal") {
             // Successfully completed level
-            ScoreManager.S.SetMessage("Level Completed!");
+            GameManager.S.GameOver("Level Completed!");
         }
     }
 }

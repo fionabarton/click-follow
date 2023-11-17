@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 //
@@ -20,10 +19,6 @@ public class ScoreManager : MonoBehaviour {
 
     void Awake() {
         S = this;
-    }
-
-    public void Start() {
-        SetMessage("BOOM!");
     }
 
     public void SetScore(int newValue) {
